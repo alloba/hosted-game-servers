@@ -1,0 +1,15 @@
+services: 
+  factorio: 
+    image: 'factoriotools/factorio:stable'
+    ports: 
+      - "34197:34197/udp" #game
+      - "27015:27015/tcp" #?
+    restart: unless-stopped 
+    environment: 
+      PUID: 845
+      PGID: 845
+      DLC_SPACE_AGE: true 
+      LOAD_LATEST_SAVE: true 
+    stop_grace_period: 2m 
+    volumes: 
+      - 'C:/Users/alexl/projects/factorio_server/game_data/factorio:/factorio' #game operates out of this folder entirely, just map the entire thing. 

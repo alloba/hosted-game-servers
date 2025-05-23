@@ -1,0 +1,21 @@
+services:
+  valheim:
+    image: ghcr.io/lloesche/valheim-server
+    ports:
+      - "2456-2458:2456-2458/udp" # game ports. default is 2456 and +1.
+    restart: unless-stopped
+    stop_grace_period: 2m
+    volumes:
+      - 'C:/Users/alexl/projects/valheim-local-server/game_data/config:/config'
+      - 'C:/Users/alexl/projects/valheim-local-server/game_data/core:/opt/valheim'
+      - 'C:/Users/alexl/projects/valheim-local-server/server_mods/plugins:/config/bepinex/plugins'
+
+    environment:
+      SERVER_NAME: "Valheim Server"
+      WORLD_NAME: "Viking Nonsense"
+      SERVER_PASS: "dlsdn"
+      SERVER_PUBLIC: false
+      ADMINLIST_IDS: "" # admin steam ID 
+      VALHEIM_PLUS: false
+      BEPINEX: true
+
