@@ -8,8 +8,8 @@ services:
     environment: 
       PUID: 845
       PGID: 845
-      DLC_SPACE_AGE: true 
+      DLC_SPACE_AGE: true # space age isn't mandatory, but it is preferred. you can run 2.0 plain though.
       LOAD_LATEST_SAVE: true 
     stop_grace_period: 2m 
     volumes: 
-      - 'C:/Users/alexl/projects/factorio_server/game_data/factorio:/factorio' #game operates out of this folder entirely, just map the entire thing. 
+      - './storage:/factorio' #game operates out of the factorio directory in the container entirely, just map the entire thing. 
